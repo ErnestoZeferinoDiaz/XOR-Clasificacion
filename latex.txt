@@ -1,0 +1,190 @@
+B_{0_{5x1}}\, \, \, \, B_{1_{1x1}}
+
+sigmoid = y = \frac{1}{1+e^{-x}} \\
+y' = y(y+1)
+
+
+formula An
+
+Z_{n}=W_{n}\times A_{n}+B_{n} \\
+A_{n+1}= f(Z_{n})
+\\\\
+A_{n+1}= f(W_{n}\times A_{n}+B_{n})
+
+
+W_{0} = 
+\begin{bmatrix}
+-3 & -4\\
+-6 & -7\\
+-6 &  2\\
+ 4 & -6\\
+ 0 & -2
+\end{bmatrix}
+
+W_{1} = 
+\begin{bmatrix}
+-2 & -8 & 7 & 8
+\end{bmatrix}
+
+B_{0} = 
+\begin{bmatrix}
+-1\\
+  2\\
+  1\\
+ -1\\
+ -1
+\end{bmatrix}
+
+B_{1} = 
+\begin{bmatrix}
+-4
+\end{bmatrix}
+
+A_{0} = 
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}
+
+Z0
+\begin{bmatrix}
+-5\\
+-5\\
+ 3\\
+-7\\
+-3
+\end{bmatrix}
+
+W0 x A0
+\begin{bmatrix}
+-4\\
+-7\\
+ 2\\
+-6\\
+-2
+\end{bmatrix}
+
+A_{1}
+\begin{bmatrix}
+0.0066929\\
+ 0.0066929\\
+ 0.9525741\\
+ 0.0009111\\
+ 0.0474259
+\end{bmatrix}
+
+W1 x A1
+\begin{bmatrix}
+6.6558047
+\end{bmatrix}
+
+Z1
+\begin{bmatrix}
+-2.655805
+\end{bmatrix}
+
+A_{2}
+\begin{bmatrix}
+0.934368
+\end{bmatrix}
+
+e=
+\begin{bmatrix}
+0.0656321
+\end{bmatrix}
+
+S_{1} = -2\times f'(A_{2})\times e
+S_{n} = Diag(f'(A_{n+1}))\times W'_{n+1}\times S_{n+1}
+
+S_{1} = -2\times f'(A_{2})\times e
+\\\\
+S_{1} = -2\times f'(\begin{bmatrix}
+0.934368
+\end{bmatrix}))\times e
+\\\\
+S_{1} = -2\times \begin{bmatrix}
+0.0613246
+ \end{bmatrix}\times e
+\\\\
+S_{1} = \begin{bmatrix}
+-0.1226491
+ \end{bmatrix}\times e
+\\\\
+S_{1} = \begin{bmatrix}
+-0.1226491
+ \end{bmatrix}\times \begin{bmatrix}
+0.0656321
+\end{bmatrix}
+\\\\
+
+S_{1} = \begin{bmatrix}
+-0.0080497
+\end{bmatrix}
+
+S_{0} = Diag(f'(A_{1}))\times W'_{1}\times S_{1} \\\\
+S_{0} = Diag(f'(\begin{bmatrix}
+0.0066929\\
+ 0.0066929\\
+ 0.9525741\\
+ 0.0009111\\
+ 0.0474259
+\end{bmatrix}))\times W'_{1}\times S_{1} \\ \\
+S_{0} = Diag(\begin{bmatrix}
+0.0066481\\
+ 0.0066481\\
+ 0.0451767\\
+ 0.0009102\\
+ 0.0451767
+\end{bmatrix})\times W'_{1}\times S_{1}\\\\
+S_{0} = \begin{bmatrix}
+0.0066481 & 0.0000000 & 0.0000000 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0066481 & 0.0000000 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0451767 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0000000 & 0.0009102 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0000000 & 0.0000000 & 0.0451767
+\end{bmatrix}\times W'_{1}\times S_{1}\\\\
+S_{0} = \begin{bmatrix}
+0.0066481 & 0.0000000 & 0.0000000 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0066481 & 0.0000000 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0451767 & 0.0000000 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0000000 & 0.0009102 & 0.0000000\\
+0.0000000 & 0.0000000 & 0.0000000 & 0.0000000 & 0.0451767
+\end{bmatrix}\times \begin{bmatrix} -2\\
+-8\\
+ 7\\
+ 8\\
+ 1 \end{bmatrix} \times S_{1}\\\\
+S_{0} = \begin{bmatrix}
+-0.0132961\\
+-0.0531845\\
+0.3162366\\
+0.0072818\\
+0.0451767
+\end{bmatrix} \times S_{1}\\\\
+S_{0} = \begin{bmatrix}
+-0.0132961\\
+-0.0531845\\
+0.3162366\\
+0.0072818\\
+0.0451767
+\end{bmatrix} \times \begin{bmatrix}
+-0.0080497
+\end{bmatrix}\\\\
+
+S_{0} = \begin{bmatrix}
+0.0001070\\
+0.0004281\\
+-0.0025456\\
+-0.0000586\\
+-0.0003637
+\end{bmatrix}\\\\
+
+B_{0} = B_{0} - \alpha \times S_{0}
+
+\begin{bmatrix}
+0.0066929&
+ 0.0066929&
+ 0.9525741&
+ 0.0009111&
+ 0.0474259
+\end{bmatrix}
