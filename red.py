@@ -74,7 +74,8 @@ def redNeuronal(minimo,maximo,capas,fun,alpha,X,Y,error):
             j=j-1
             while(j>=0):
                 if(j==len(capas)-2):
-                    Ss[j] = -2*(fun[j](As[j+1])[1])*e
+                    #Ss[j] = -2*(fun[j](As[j+1])[1])*e
+                    Ss[j] = np.multiply(-2*(fun[j](As[j+1])[1]),e)
                 else:
                     tmp1 = fun[j](As[j+1])[1]
                     Ss[j] = np.diagflat(tmp1)*Ws[j+1].transpose()*Ss[j+1]

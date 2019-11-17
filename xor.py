@@ -9,7 +9,7 @@ Y=np.matrix([[0],[1],[1],[0]])
 rows = X.shape[0]
 
 #el numero de capas de nuestra red neuronal y la funcion de activacion que usaran
-capas = [X.shape[1],5,Y.shape[1]]
+capas = [X.shape[1],15,Y.shape[1]]
 fun = [red.sigmoid,red.sigmoid]
 
 #rango que usaran los pesos sinapticos para generar sus valores aleatorios
@@ -65,7 +65,8 @@ grf[1].plot(X[np.where(Y==0)[0],0],X[np.where(Y==0)[0],1],"ro")
 grf[1].plot(X[np.where(Y==1)[0],0],X[np.where(Y==1)[0],1],"bo")
 
 #graficamos la frontera de decision
-grf[1].contour(u,v,z,50)
+#grf[1].contour(u,v,z,50)
+grf[1].pcolormesh(u,v,z)
 
 #rango de vision de la grafica y activacion de la grid
 grf[1].axis([-0.5, 1.5, -0.5, 1.5])
