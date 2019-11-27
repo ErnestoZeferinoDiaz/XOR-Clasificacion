@@ -9,7 +9,7 @@ Y=np.matrix([[0],[1],[1],[0]])
 rows = X.shape[0]
 
 #el numero de capas de nuestra red neuronal y la funcion de activacion que usaran
-capas = [X.shape[1],15,Y.shape[1]]
+capas = [X.shape[1],16,Y.shape[1]]
 fun = [red.sigmoid,red.sigmoid]
 
 #rango que usaran los pesos sinapticos para generar sus valores aleatorios
